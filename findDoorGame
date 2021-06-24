@@ -1,0 +1,71 @@
+#include <stdio.h>
+#include <windows.h>
+#include <conio.h>
+#include <time.h>
+
+int x=25,y=10,d=1;
+
+void gotoxy(int x, int y) {
+	COORD Pos={x,y};
+	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE),Pos);
+}
+
+void countdown(clock_t st) {
+	clock_t et=clock();
+	float diff = (et - st);
+	gotoxy(2,23);
+	printf("%.2f", 30-diff/CLOCKS_PER_SEC);
+}
+
+
+
+void draw(int x, int y,int s, int dx, int dy) {
+	gotoxy(x, y);
+	if(x==dx && y==dy) { 
+		printf("SUCCESS!");
+		system("color F0");
+	}
+	else {
+		
+		if (s==1) { printf("(@ω@ )");}
+		if (s==2) { printf("( @ ω@)");} 
+		else {printf("%8s","");}
+		gotoxy(x, y);
+	}
+}
+
+
+void move(char k,int dx, int dy) {
+	draw(x,y,0,dx, dy);
+	switch(k) {
+		case 'w': y--; break;
+		case 's': y++; break;
+		case 'a': x--; d=1; break;
+		case 'd': x++; d=2;break;
+	}
+	if(y<0) { y=0; }
+	if(x<0) { x=0; }
+
+	draw(x, y,d, dx, dy);
+	 
+}
+
+int main() {
+	system("mode con lines=25 cols=50 | title=GAME");
+	  int doorx=3;
+	  int doory=4;
+	
+	draw(x,y,d,doorx, doory);
+	clock_t st = clock();
+	while(1) {
+		countdown(st);
+		if(kbhit()) {
+			
+			move( getch(),doorx, doory );
+		}
+		Sleep(50);
+	}
+	
+	return 0;
+}
+
