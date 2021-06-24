@@ -1,0 +1,24 @@
+#include <stdio.h>
+#include <windows.h>
+#include <conio.h>
+
+int main() {
+
+	while(1) {
+		if(kbhit()) {
+			printf("%c \n", getch());
+		}
+		else {
+			printf("press any key!\n");
+		}
+		Sleep(100);
+	}
+	
+	return 0;
+}
+
+
+
+
+
+
