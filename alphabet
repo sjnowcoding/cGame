@@ -1,0 +1,19 @@
+#include <stdio.h>
+#include <time.h>
+
+int main()
+{
+	clock_t start;
+	clock_t end;
+	
+	printf("a부터z까지 입력하세요:");
+	
+	start = clock();
+	getchar();
+	end = clock();
+	
+	float c = (end - start);
+	
+	printf("%.2f초 걸렸습니다.", c/CLOCKS_PER_SEC);
+	
+}
