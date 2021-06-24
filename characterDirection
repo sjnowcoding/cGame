@@ -1,0 +1,55 @@
+#include <stdio.h>
+#include <windows.h>
+#include <conio.h>
+
+int x=25,y=10,d=1;
+
+void gotoxy(int x, int y) {
+	COORD Pos={x,y};
+	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE),Pos);
+}
+
+void draw(int x, int y,int s) {
+	gotoxy(x, y);
+	if (s==1) { printf("(@ω@ )");}
+	if (s==2) { printf("( @ ω@)");} 
+	else {printf("%8s","");}
+	gotoxy(x, y);
+}
+
+
+void move(char k) {
+	draw(x,y,0);
+	switch(k) {
+		case 'w': y--; break;
+		case 's': y++; break;
+		case 'a': x--; d=1; break;
+		case 'd': x++; d=2;break;
+	}
+	if(y<0) { y=0; }
+	if(x<0) { x=0; }
+
+	draw(x, y,d);
+	 
+}
+
+int main() {
+	system("mode con lines=25 cols=50 | title=GAME");
+	
+	draw(x,y,d);
+	
+	while(1) {
+		if(kbhit()) {
+			move( getch() );
+		}
+		Sleep(100);
+	}
+	
+	return 0;
+}
+
+
+
+
+
+
