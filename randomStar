@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <windows.h>
+#include <stdlib.h>
+#include <time.h>
+#define screenSize "mode con lines=25 cols=50 | title = GAME"
+void gotoxy(int x, int y) {
+	COORD Pos={x,y};
+	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE),Pos);
+}
+int main()
+{
+	srand(time(NULL));
+	system(screenSize);
+	int cx, cy;
+	while(1) {
+		cx = rand()%50;
+		cy = rand()%25;
+		gotoxy(cx, cy);
+		printf("*");
+		Sleep(100);
+	 }
+ return 0;
+ }
+ 
+
+
