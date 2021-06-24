@@ -1,0 +1,21 @@
+#include <stdio.h>
+#include <windows.h>
+void A() {
+printf("  ___   _____  _____ \n");
+printf(" / _ \\ | ___ \\/  __ \\\n");
+printf("/ /_\\ \\| |_/ /| /  \\/ \n");
+printf("|  _  || ___ \\| |    \n");
+printf("| | | || |_/ /| \\__/\\ \n");
+printf("\\_| |_/\\____/  \\____/ \n");
+                     
+}
+
+int main() {
+	system("color F0");
+	A();
+	
+	return 0;
+}
+
+
+
