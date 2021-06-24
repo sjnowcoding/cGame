@@ -1,0 +1,10 @@
+#include <stdio.h>
+#include <time.h>
+
+int main()
+{
+	
+	printf("나는 1초에 종을 %d번\
+울립니다.",CLOCKS_PER_SEC);
+
+}
