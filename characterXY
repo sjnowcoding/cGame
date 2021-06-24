@@ -1,0 +1,38 @@
+#include <stdio.h>
+#include <windows.h>
+#include <conio.h>
+
+int x=25,y=10;
+
+void move(char k) {
+	switch(k) {
+		case 'w': y--; break;
+		case 's': y++; break;
+		case 'a': x--; break;
+		case 'd': x++; break;
+	}
+	if(y<0) { y=0; }
+	if(x<0) { x=0; }
+	
+	printf("x:%d, y:%d\n", x, y); 
+}
+
+
+int main() {
+	system("mode con lines=25 cols=50 | title=GAME");
+	printf("x:%d, y:%d\n", x, y); 
+	while(1) {
+		if(kbhit()) {
+			move( getch() );
+		}
+		Sleep(100);
+	}
+	
+	return 0;
+}
+
+
+
+
+
+
