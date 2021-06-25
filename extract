@@ -1,0 +1,19 @@
+#include <stdio.h>
+
+int extract(int num, int p) {
+	
+	if (p==1) { return num/100;	}
+	else if (p==3) { return num%10;}
+	else if(p==2) { 
+		num = num/10;
+		return num%10;
+	}
+}
+
+int main() {
+	int n=345;
+	printf("%d\n", extract(n,1));	
+	printf("%d\n", extract(n,2));	
+	printf("%d\n", extract(n,3));	
+	return 0;
+}
