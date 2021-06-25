@@ -1,0 +1,33 @@
+#include <stdio.h>
+#include <windows.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main()
+{
+	system("mode con cols=50 lines=20|title=UP/DOWN");
+	
+	srand(time(NULL));
+	int cn = (rand()%100) + 1;
+	int gn; 
+	
+	while(1) {
+		printf("[컴퓨터가 정한1~100의숫자를 맞혀보세요]\n");
+		printf("숫자입력:"); scanf("%d", &gn);
+		
+		system("cls");
+		if(gn>cn) { 
+			printf("Too up"); Sleep(1500); 
+		}
+		else if(gn<cn) {
+			printf("Too down"); Sleep(1500);
+		}
+	 	else {
+	 		printf("GOOD JOB!"); Sleep(1500);
+			break;
+		}
+		system("cls");
+	}
+ return 0;
+ }
+ 
