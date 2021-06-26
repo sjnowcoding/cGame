@@ -1,0 +1,33 @@
+#include <stdio.h>
+#include <windows.h>
+#include <string.h>
+#include <conio.h>
+
+enum colors {BLACK=0,BLUE,GREEN,RED=4,WHITE=7};
+
+void fontcolor(int n) {
+		SetConsoleTextAttribute \
+		(GetStdHandle( STD_OUTPUT_HANDLE), n);
+	}
+
+int main() {
+	system("mode con lines=5 cols=50 |title=TypeGame");
+	char msg[100]="abcdefghijklmnopqrstuvwxyz!";
+	printf("입력문구:"); 
+	
+	printf("%s\n",msg);
+	int length = strlen(msg);
+	
+	printf("입력하기:"); 
+	char key;
+	for(int i=0; i<length; i++) {
+		key=getch();
+		
+		if (key !=msg[i]) { fontcolor(RED); }
+		else{ 	fontcolor(WHITE);  }
+	
+			printf("%c",key);
+	}
+	
+	return 0;
+}
