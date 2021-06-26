@@ -1,0 +1,20 @@
+#include <stdio.h>
+#include <windows.h>
+
+enum colors \
+	{BLACK=0,BLUE,GREEN,RED=4,WHITE=7};
+
+void fontcolor(int n) {
+		SetConsoleTextAttribute \
+		(GetStdHandle( STD_OUTPUT_HANDLE), n);
+	}
+
+int main() {
+	
+	fontcolor(RED);
+	printf("nice too meet you!");
+	fontcolor(WHITE);
+	printf("goodbye!");	
+	return 0;
+}
+
