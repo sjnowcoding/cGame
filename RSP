@@ -1,0 +1,44 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#include <conio.h>
+
+int main()
+{
+	char c, p;
+	printf("1:가위, 2:바위, 3:보==>"); 
+	p=getch(); 
+	c=rand()%3+49; 
+	
+	if(p==c) { 
+			if(c=='1') { printf("둘 모두 가위\n"); } 
+			if(c=='2') { printf("둘 모두 주먹\n"); } 
+			if(c=='3') { printf("둘 모두 보\n"); } 
+			printf("비김");
+		 }
+	else {	
+	
+		if(p=='1') {
+			printf("플레이어:가위  "); 
+			if(c=='2'){ printf("컴퓨터:주먹\n 컴퓨터 승");}
+			else {printf("컴퓨터:보\n 플레이어 승"); } 
+		}
+		
+		else if(p=='2') {
+			printf("플레이어:바위  "); 
+			if(c=='3'){ printf("컴퓨터:보\n 컴퓨터 승");}
+			else {printf("컴퓨터:가위\n 플레이어 승"); } 
+			
+		}
+		
+		else if (p=='3') {
+			printf("플레이어:보  ");
+			if(c=='2'){ printf("컴퓨터:가위\n 컴퓨터 승");}
+			else {printf("컴퓨터:주먹\n 플레이어 승"); } 
+			
+		}
+	
+	}
+ return 0;
+ }
+ 
