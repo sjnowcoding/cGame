@@ -1,0 +1,42 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#include <conio.h>
+#include <windows.h>
+
+int main()
+{
+	srand(time(NULL));
+	printf("화면에 숫자가 나타나면\
+그 숫자를 2초안에 입력하세요!\n");
+ 
+ 	int waitTime = rand()%4000+1000;
+ 	char n = rand()%10+48;
+ 	char m;
+ 	int check=0;
+ 	
+  	Sleep(waitTime);
+ 	printf("%c\n", n);
+
+ 	clock_t start = clock();
+	do{
+	 	if(kbhit()) {
+	 		check=1;
+	 		m=getch();
+	 		break;
+	 	}
+	}while(start+2000>clock());
+	
+	if(check==1){
+		if(m==n) {printf("정답입니다.");}
+		else{printf("시간안에 입력했지만 틀렸습니다."); }
+	}
+	else{
+	
+		printf("시간안에 입력하지 못하셨네요.\n");
+		printf("안타깝습니다."); 
+	}
+	 
+ return 0;
+ }
+ 
